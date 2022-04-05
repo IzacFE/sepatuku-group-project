@@ -1,10 +1,10 @@
-import "./App.css";
+import WebRoutes from "./routes/WebRoutes";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <>
+      <WebRoutes />
+    </>
   );
 }
 
