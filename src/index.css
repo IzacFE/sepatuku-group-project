@@ -1,0 +1,11 @@
+:root {
+  font-size: 16px;
+  /* font-family: "Lato"; */
+  --text-primary: #000000;
+  --text-secondary: #ffffff;
+  --text-blue: #19345e;
+  --bg-primary: #ffffff;
+  --main-primary: #ffffff;
+  --main-secondary: #bebbbb;
+  --main-alternative: #19345e;
+}
