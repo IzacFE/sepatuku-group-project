@@ -1,0 +1,16 @@
+footer {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-alternative);
+  color: var(--main-primary);
+}
+
+.footerButton {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 10px 22px;
+}
