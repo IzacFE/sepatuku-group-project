@@ -1,0 +1,28 @@
+.productCardContainer {
+  height: 400px;
+  width: 330px;
+  box-shadow: 0 0 2px var(--main-secondary);
+  margin: 10px;
+}
+
+.productCardContainer:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 7px var(--main-secondary);
+}
+
+.productCardImg {
+  height: 330px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.productInfo {
+  padding: 10px;
+}
+
+.productInfo h3 {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+}
