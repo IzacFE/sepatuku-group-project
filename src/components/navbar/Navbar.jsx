@@ -15,7 +15,7 @@ export default function Navbar() {
 
       <ul className="ulNavbar">
         <li>
-          <h3 className="navHomeButton">Home</h3>
+          <h3 className="navHomeButton">Beranda</h3>
         </li>
         <li className="navCartButton">
           <h3 className="navMobileText">

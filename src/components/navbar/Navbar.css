@@ -158,7 +158,7 @@ nav ul li {
     padding: 5px;
     font-size: 1.3rem;
     font-weight: bold;
-    width: auto;
+    width: 85px;
     height: auto;
     text-align: center;
     border: 2px solid var(--main-alternative);
