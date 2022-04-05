@@ -14,8 +14,8 @@ import Layout from "../components/layout/Layout";
 export default function WebRoutes() {
   return (
     <>
-      <Layout>
-        <BrowserRouter>
+      <BrowserRouter>
+        <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/detail" element={<Detail />} />
@@ -26,8 +26,8 @@ export default function WebRoutes() {
             <Route path="/order" element={<Order />} />
             <Route path="/history" element={<History />} />
           </Routes>
-        </BrowserRouter>
-      </Layout>
+        </Layout>
+      </BrowserRouter>
     </>
   );
 }
