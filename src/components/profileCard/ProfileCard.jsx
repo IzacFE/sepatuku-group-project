@@ -1,7 +1,12 @@
 import React from "react";
 import "./ProfileCard.css";
 
+import LongButton from "../longButton/LongButton";
+import { useNavigate } from "react-router-dom";
+
 export default function ProfileCard() {
+  const navigate = useNavigate();
+
   return (
     <div className="profileDetail">
       <div
@@ -18,6 +23,12 @@ export default function ProfileCard() {
           <h2 className="profileContact">
             Jalan Soedirman no 12345 Provinsi Nusakambangan RT/RW null/undefined
           </h2>
+          <LongButton
+            text={"Riwayat Pesanan"}
+            onClick={() => {
+              navigate("/history");
+            }}
+          />
         </div>
       </div>
     </div>

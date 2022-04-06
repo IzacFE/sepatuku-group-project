@@ -1,7 +1,11 @@
 import React from "react";
 import "./Navbar.css";
 
+import { useNavigate } from "react-router-dom";
+
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <nav>
       <input type="checkbox" id="check" />
@@ -14,25 +18,50 @@ export default function Navbar() {
       </div>
 
       <ul className="ulNavbar">
-        <li>
+        <li
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <h3 className="navHomeButton">Beranda</h3>
         </li>
-        <li className="navCartButton">
+
+        <li
+          className="navCartButton"
+          onClick={() => {
+            navigate("/cart");
+          }}
+        >
           <h3 className="navMobileText">
             <i class="fa-solid fa-cart-shopping" />
             <span> Keranjang</span>
           </h3>
         </li>
-        <li className="navUserButton">
+
+        <li
+          className="navUserButton"
+          onClick={() => {
+            navigate("/profile");
+          }}
+        >
           <h3 className="navMobileText">
             <i class="fa-regular fa-circle-user" />
             <span> Profil</span>
           </h3>
         </li>
-        <li>
+
+        <li
+          onClick={() => {
+            navigate("/signin");
+          }}
+        >
           <div className="navSignIn">Masuk</div>
         </li>
-        <li>
+        <li
+          onClick={() => {
+            navigate("/register");
+          }}
+        >
           <div className="navRegister">Daftar</div>
         </li>
       </ul>
