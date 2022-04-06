@@ -1,0 +1,20 @@
+.profileContainer {
+  width: 80%;
+}
+
+.profileBio {
+  margin-top: 7vh;
+  margin-bottom: 25px;
+  border: 1px solid var(--main-secondary);
+  padding: 20px;
+}
+
+.profileProductHeader {
+  margin-left: 5px;
+}
+
+.profileProdukDagangan {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}

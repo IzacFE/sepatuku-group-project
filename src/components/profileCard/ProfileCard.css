@@ -1,0 +1,33 @@
+.profileDetail {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* width: 90%; */
+}
+
+.profileAvatar {
+  max-width: 250px;
+  max-height: 250px;
+  width: 40vw;
+  height: 40vw;
+  min-width: 150px;
+  min-height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.profileDescription {
+  width: 65%;
+  min-width: 250px;
+  display: grid;
+  place-items: center;
+}
+
+.profileDescription h2 {
+  font-size: 1.3rem;
+  /* margin: auto; */
+}
+
+/* @media (max-witdh: 750px) {
+} */

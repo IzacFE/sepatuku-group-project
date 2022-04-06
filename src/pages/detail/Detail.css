@@ -1,0 +1,45 @@
+.detailContainer {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.leftSectionDetail {
+  width: 50%;
+}
+
+.rightSectionDetail {
+  width: 50%;
+  min-height: 70vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detailImg {
+  width: 100%;
+  height: 70vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.detailContent p {
+  text-align: justify;
+}
+
+.detailContainer h1 {
+  font-size: 2rem;
+  margin: 15px 0;
+}
+
+.detailContainer h2 {
+  font-size: 1.5rem;
+}
+
+.detailContainer p {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: 400;
+}

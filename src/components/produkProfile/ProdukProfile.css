@@ -1,0 +1,47 @@
+.produkUserContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 45%;
+  min-width: 500px;
+  border: 1px solid var(--main-secondary);
+  margin: 7px;
+}
+
+.produkUserImg {
+  width: 200px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.produkUserDetail {
+  width: 35%;
+  display: grid;
+  place-items: center;
+}
+
+.produkUserDetail h2 {
+  font-size: 1.3rem;
+  margin: auto;
+}
+
+.produkUserButtons {
+  width: 35%;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--main-secondary);
+}
+
+.profileRemoveProduct {
+  /* width: 20px; */
+  margin: auto;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.profileRemoveProduct i {
+  color: red;
+  font-size: 2rem;
+}
