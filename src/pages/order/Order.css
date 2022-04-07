@@ -1,0 +1,8 @@
+.orderContainer {
+    margin: 20px 0;
+    width: 100%;
+    border: 1px solid var(--main-secondary);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+}
