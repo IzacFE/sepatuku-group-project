@@ -3,6 +3,7 @@
   width: 330px;
   box-shadow: 0 0 2px var(--main-secondary);
   margin: 10px;
+  cursor: pointer;
 }
 
 .productCardContainer:hover {
@@ -25,4 +26,19 @@
 .productInfo h3 {
   font-size: 1rem !important;
   font-weight: 500 !important;
+}
+
+@media (max-width: 1000px) {
+  .productCardContainer {
+    height: 320px;
+    width: 250px;
+  }
+
+  .productCardImg {
+    height: 250px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 }

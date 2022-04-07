@@ -1,17 +1,25 @@
 .detailContainer {
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   width: 80%;
+  max-width: 1366px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 0 5px var(--main-secondary);
+  padding: 5vh 1rem;
 }
 
 .leftSectionDetail {
+  display: grid;
+  place-items: center;
   width: 50%;
 }
 
 .rightSectionDetail {
+  min-width: 380px;
   width: 50%;
-  min-height: 70vh;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -20,9 +28,17 @@
 
 .detailImg {
   width: 100%;
-  height: 70vh;
+  min-width: 250px;
+  max-width: 450px;
+  height: 50vh;
+  max-height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+}
+
+.detailContent {
+  margin-bottom: 2rem;
 }
 
 .detailContent p {
@@ -42,4 +58,59 @@
   margin-top: 20px;
   font-size: 1.2rem;
   font-weight: 400;
+}
+
+@media (max-width: 1000px) {
+  .leftSectionDetail {
+    width: 100%;
+  }
+
+  .rightSectionDetail {
+    width: 100%;
+  }
+
+  .detailContainer h1 {
+    font-size: 1.3rem;
+    margin: 10px 0;
+  }
+
+  .detailContainer h2 {
+    font-size: 1.1rem;
+  }
+
+  .detailContainer p {
+    margin-top: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 650px) {
+  .detailContainer {
+    width: 100%;
+  }
+
+  .detailImg {
+    width: 100%;
+    height: 300px;
+  }
+
+  .rightSectionDetail {
+    min-width: 0;
+    padding: 10px;
+  }
+
+  .detailContainer h1 {
+    font-size: 1.1rem;
+  }
+
+  .detailContainer h2 {
+    font-size: 1rem;
+  }
+
+  .detailContent p {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 400;
+  }
 }

@@ -2,6 +2,21 @@
   height: 55px;
   width: 100%;
   background-color: var(--main-secondary);
+  text-align: center;
+}
+
+.searchFormContainer {
+  width: 60%;
+  margin: auto;
+  background-color: #ffffff;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.searchForm {
+  height: 35px;
+  width: 90%;
+  border: none;
 }
 
 .homeContainer {
@@ -18,4 +33,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+@media (max-width: 1000px) {
+  .homeProductContainer {
+    width: 95%;
+  }
+}
+
+@media (max-width: 750px) {
+  .searchForm {
+    width: 80%;
+  }
 }

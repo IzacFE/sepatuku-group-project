@@ -1,8 +1,9 @@
 .produkUserContainer {
   display: flex;
   justify-content: space-between;
-  width: 45%;
-  min-width: 500px;
+  width: 435px;
+  /* max-width: 500px; */
+  /* min-width: 400px; */
   border: 1px solid var(--main-secondary);
   margin: 7px;
 }
@@ -12,6 +13,7 @@
   height: 200px;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 .produkUserDetail {
@@ -21,24 +23,25 @@
 }
 
 .produkUserDetail h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   margin: auto;
 }
 
 .produkUserButtons {
-  width: 35%;
+  width: 20%;
   min-width: 80px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border-left: 1px solid var(--main-secondary);
 }
 
 .profileRemoveProduct {
   /* width: 20px; */
-  margin: auto;
+  /* margin: auto; */
   text-align: center;
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .profileRemoveProduct i {

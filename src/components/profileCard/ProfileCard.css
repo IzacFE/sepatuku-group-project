@@ -1,8 +1,7 @@
 .profileDetail {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
-  /* width: 90%; */
 }
 
 .profileAvatar {
@@ -19,6 +18,7 @@
 
 .profileDescription {
   width: 65%;
+  margin-left: 20px;
   min-width: 250px;
   display: grid;
   place-items: center;
@@ -26,8 +26,37 @@
 
 .profileDescription h2 {
   font-size: 1.3rem;
-  /* margin: auto; */
 }
 
-/* @media (max-witdh: 750px) {
-} */
+.profileHistoryButton {
+  margin-top: 25px;
+}
+
+@media (max-width: 1000px) {
+  .profileDetail {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profileDescription {
+    margin-top: 2rem;
+    width: 100%;
+    margin-left: 0;
+    min-width: 0;
+  }
+
+  .profileDescription h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .profileDescription {
+    margin-top: 1rem;
+  }
+
+  .profileDescription h2 {
+    font-size: 1rem;
+  }
+}

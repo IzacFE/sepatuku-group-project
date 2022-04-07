@@ -1,9 +1,9 @@
 import React from "react";
 import "./ProductCard.css";
 
-export default function ProductCard() {
+export default function ProductCard(props) {
   return (
-    <div className="productCardContainer">
+    <div className="productCardContainer" onClick={props.onClick}>
       <div
         className="productCardImg"
         style={{

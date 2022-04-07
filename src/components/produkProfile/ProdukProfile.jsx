@@ -2,7 +2,7 @@ import React from "react";
 import "./ProdukProfile.css";
 import LongButton from "../longButton/LongButton";
 
-export default function ProdukProfile() {
+export default function ProdukProfile(props) {
   return (
     <>
       <div className="produkUserContainer">
@@ -20,9 +20,10 @@ export default function ProdukProfile() {
           </h2>
         </div>
         <div className="produkUserButtons">
-          <LongButton text={"Detail"} />
+          <LongButton text={"Detail"} onCLick={props.onClick} />
+          <LongButton text={"Edit"} onCLick={props.clickEdit} />
           <div className="profileRemoveProduct">
-            <i class="fa-regular fa-circle-xmark" />
+            <i className="fa-regular fa-circle-xmark" />
             <br />
             Hapus
           </div>

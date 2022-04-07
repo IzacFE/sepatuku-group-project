@@ -33,7 +33,7 @@ export default function Navbar() {
           }}
         >
           <h3 className="navMobileText">
-            <i class="fa-solid fa-cart-shopping" />
+            <i className="fa-solid fa-cart-shopping" />
             <span> Keranjang</span>
           </h3>
         </li>
@@ -45,7 +45,7 @@ export default function Navbar() {
           }}
         >
           <h3 className="navMobileText">
-            <i class="fa-regular fa-circle-user" />
+            <i className="fa-regular fa-circle-user" />
             <span> Profil</span>
           </h3>
         </li>

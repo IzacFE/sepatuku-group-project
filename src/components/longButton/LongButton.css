@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   place-items: center;
-  height: 50px;
+  height: 40px;
   color: var(--main-primary);
   background-color: var(--main-alternative);
   cursor: pointer;
@@ -10,7 +10,12 @@
 
 .longButtonContainer p {
   margin: 0 !important;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .longButtonContainer:hover {
@@ -18,4 +23,13 @@
   background-color: var(--main-primary);
   border: 2px solid var(--main-alternative);
   box-shadow: 0 0 15px var(--main-alternative);
+}
+
+@media (max-width: 750px) {
+  .longButtonContainer {
+    height: 30px;
+  }
+  .longButtonContainer p {
+    font-size: 1rem;
+  }
 }

@@ -1,15 +1,17 @@
 .profileContainer {
   width: 80%;
+  margin-top: 7vh;
+  margin-bottom: 7vh;
 }
 
 .profileBio {
-  margin-top: 7vh;
   margin-bottom: 25px;
   border: 1px solid var(--main-secondary);
   padding: 20px;
 }
 
 .profileProductHeader {
+  margin-top: 3rem;
   margin-left: 5px;
 }
 
@@ -17,4 +19,12 @@
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+}
+
+@media (max-width: 600px) {
+  .profileProductHeader {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    margin-left: 5px;
+  }
 }

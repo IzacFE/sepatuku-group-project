@@ -6,8 +6,10 @@ import "./Layout.css";
 export default function Layout(props) {
   return (
     <>
-      <Navbar />
-      <div className="layoutContainer">{props.children}</div>;
+      <div className="layoutContainer">
+        <Navbar />
+        <section className="layoutSection">{props.children}</section>
+      </div>
       <Footer />
     </>
   );

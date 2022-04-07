@@ -15,6 +15,7 @@ export default function ProfileCard() {
           backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png)`,
         }}
       />
+
       <div className="profileDescription">
         <div>
           <h2 className="profileName">Username</h2>
@@ -23,12 +24,14 @@ export default function ProfileCard() {
           <h2 className="profileContact">
             Jalan Soedirman no 12345 Provinsi Nusakambangan RT/RW null/undefined
           </h2>
-          <LongButton
-            text={"Riwayat Pesanan"}
-            onClick={() => {
-              navigate("/history");
-            }}
-          />
+          <div className="profileHistoryButton">
+            <LongButton
+              text={"Riwayat Pembelian"}
+              onClick={() => {
+                navigate("/history");
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>
