@@ -24,7 +24,8 @@ export default function Detail() {
       .get(`/products/${params.id}`)
       .then((response) => {
         setDataProductId(response.data.data);
-        setToken(JSON.parse(localStorage.getItem("token")));
+        setToken(localStorage.getItem("token"));
+        console.log(localStorage.getItem("token"));
       })
       .catch((err) => {
         console.log("error");
