@@ -12,6 +12,7 @@ export default function SignIn() {
 
   useEffect(() =>{
     if(localStorage.getItem('token')) {
+      
       navigate("/")
     }
   }, [])
@@ -25,6 +26,7 @@ export default function SignIn() {
       })
       .then((response) => {
         console.log(response.data);
+        alert('berhasil masuk');
         localStorage.setItem('token', response.data.data.token);
         navigate("/");
       })
