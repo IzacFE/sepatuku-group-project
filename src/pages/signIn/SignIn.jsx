@@ -20,7 +20,7 @@ export default function SignIn() {
       .then((response) => {
         console.log(response.data);
         localStorage.setItem("token", response.data.data.token);
-        navigate("/");
+        // navigate("/");
       })
       .catch((error) => {
         console.log(error);
