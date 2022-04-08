@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SignIn.css";
 
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,12 @@ export default function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  useEffect(() =>{
+    if(localStorage.getItem('token')) {
+      navigate("/")
+    }
+  }, [])
+
   const handleSignIn = async (e) => {
     e.preventDefault();
     await axios
@@ -19,8 +25,8 @@ export default function SignIn() {
       })
       .then((response) => {
         console.log(response.data);
-        localStorage.setItem("token", response.data.data.token);
-        // navigate("/");
+        localStorage.setItem('token', response.data.data.token);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
