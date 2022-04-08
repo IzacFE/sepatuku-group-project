@@ -34,8 +34,6 @@
   background-color: var(--main-alternative);
   color: #ffff;
   font-size: 20px;
-  font-family: "Orbitron";
-  font-weight: bold;
 }
 
 @keyframes spin {
