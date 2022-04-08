@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import LongButton from "../../components/longButton/LongButton";
 import LoadSpin from "../../components/loadSpin/LoadSpin";
 import "./Detail.css";
 
 export default function Detail() {
+  let navigate = useNavigate();
   let params = useParams();
 
   const [isReady, setIsReady] = useState(false);
   const [dataProductId, setDataProductId] = useState([]);
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -22,7 +24,7 @@ export default function Detail() {
       .get(`/products/${params.id}`)
       .then((response) => {
         setDataProductId(response.data.data);
-        console.log(response.data.data);
+        setToken(JSON.parse(localStorage.getItem("token")));
       })
       .catch((err) => {
         console.log("error");
@@ -43,6 +45,14 @@ export default function Detail() {
   //     .finally(() => setIsReady(true));
   // };
 
+  const addCart = () => {
+    if (token) {
+      console.log("token terdeteksi");
+    } else {
+      navigate("/signin");
+    }
+  };
+
   let result;
   if (isReady) {
     result = (
@@ -53,7 +63,6 @@ export default function Detail() {
               className="detailImg"
               style={{
                 backgroundImage: `url(${dataProductId.image})`,
-                // backgroundImage: `url("")`,
               }}
             ></div>
           </section>
@@ -72,7 +81,13 @@ export default function Detail() {
                 {dataProductId.description}
               </p>
             </div>
-            <LongButton text={"Tambah ke Keranjang"} />
+            <LongButton
+              onClick={() => {
+                addCart();
+                console.log("clicked");
+              }}
+              text={"Tambah ke Keranjang"}
+            />
           </section>
         </div>
       </>
@@ -81,5 +96,5 @@ export default function Detail() {
     result = <LoadSpin />;
   }
 
-  return <>{result};</>;
+  return <>{result}</>;
 }

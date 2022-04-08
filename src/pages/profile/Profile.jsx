@@ -65,6 +65,16 @@ export default function Profile() {
   //     .finally(() => setIsReady(true));
   // };
 
+  const addProduct = async (title, descrip) => {
+    await axios
+      .post(
+        `/products`
+        // {name_products:}
+      )
+      .then(alert("success"))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="profileContainer">
       <div className="profileBio">
@@ -73,7 +83,11 @@ export default function Profile() {
 
       <h2 className="profileProductHeader">Tambah Produk Dagangan</h2>
       <div className="newProductContainer">
-        <NewProductForm />
+        <NewProductForm
+          onSubmit={(nameProduct, description, price, stock, picture) => {
+            addProduct(nameProduct, description, price, stock, picture);
+          }}
+        />
       </div>
 
       <h2 className="profileProductHeader">Produk Dagangan</h2>
