@@ -7,12 +7,12 @@ export default function ProductCard(props) {
       <div
         className="productCardImg"
         style={{
-          backgroundImage: `url(https://pyxis.nymag.com/v1/imgs/a98/d0a/ad37aae9d281b562d1afe26fdc8a28cbd6.rsquare.w600.jpg)`,
+          backgroundImage: `url(${props.image})`,
         }}
       ></div>
       <div className="productInfo">
-        <h3 className="productName">Fila Disruptor</h3>
-        <h3 className="productPrice">Rp 1.500.000</h3>
+        <h3 className="productName">{props.title}</h3>
+        <h3 className="productPrice">Rp {`${props.price}`}</h3>
       </div>
     </div>
   );

@@ -35,6 +35,11 @@
   justify-content: center;
 }
 
+.viewMoreHome {
+  width: 200px !important;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 1000px) {
   .homeProductContainer {
     width: 95%;

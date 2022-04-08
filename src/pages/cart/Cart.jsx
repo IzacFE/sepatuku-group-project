@@ -1,9 +1,69 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./Cart.css";
 
 import LongButton from "../../components/longButton/LongButton";
 
 export default function Cart() {
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    await axios
+      .get(`/carts`)
+      .then((response) => {
+        console.log(response);
+        //  setMovies(response.data.results.slice(0, 8));
+      })
+      .catch((err) => {
+        console.log("error");
+      })
+      .finally(() => setIsReady(true));
+  };
+
+  const updateData = async () => {
+    await axios
+      .put(`/carts/${"id"}`)
+      .then((response) => {
+        console.log(response);
+        //  setMovies(response.data.results.slice(0, 8));
+      })
+      .catch((err) => {
+        console.log("error");
+      })
+      .finally(() => setIsReady(true));
+  };
+
+  const deleteData = async () => {
+    await axios
+      .delete(`/carts/${"id"}`)
+      .then((response) => {
+        console.log(response);
+        //  setMovies(response.data.results.slice(0, 8));
+      })
+      .catch((err) => {
+        console.log("error");
+      })
+      .finally(() => setIsReady(true));
+  };
+
+  // MASIH SALAH
+  const createOrder = async () => {
+    await axios
+      .post(`52.87.250.27:8080/api/v1/carts/${"id"}`)
+      .then((response) => {
+        console.log(response);
+        //  setMovies(response.data.results.slice(0, 8));
+      })
+      .catch((err) => {
+        console.log("error");
+      })
+      .finally(() => setIsReady(true));
+  };
+
   return (
     <>
       <div className="cartPageContainer">
