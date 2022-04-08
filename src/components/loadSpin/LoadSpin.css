@@ -1,0 +1,49 @@
+.spinnerScreen {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.spinnerContainer {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+}
+
+.spinner {
+  width: 150px;
+  height: 150px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 5px solid var(--main-alternative);
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  animation: spin 1s infinite;
+}
+
+.innerSpinner {
+  width: 100px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background-color: var(--main-alternative);
+  color: #ffff;
+  font-size: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

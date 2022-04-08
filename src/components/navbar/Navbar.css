@@ -42,6 +42,7 @@ nav ul li {
 .navbarLogo {
   display: flex;
   float: left;
+  cursor: pointer;
 }
 
 .navLogoImg {

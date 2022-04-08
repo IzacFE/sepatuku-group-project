@@ -1,37 +1,85 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+import { useParams } from "react-router-dom";
+
 import LongButton from "../../components/longButton/LongButton";
+import LoadSpin from "../../components/loadSpin/LoadSpin";
 import "./Detail.css";
 
 export default function Detail() {
-  return (
-    <>
-      <div className="detailContainer">
-        <section className="leftSectionDetail">
-          <div
-            className="detailImg"
-            style={{
-              backgroundImage: `url(https://pyxis.nymag.com/v1/imgs/a98/d0a/ad37aae9d281b562d1afe26fdc8a28cbd6.rsquare.w600.jpg)`,
-            }}
-          ></div>
-        </section>
-        <section className="rightSectionDetail">
-          <div className="detailContent">
-            <h1 className="detailProductName">Fila Disruptor</h1>
-            <h1 className="detailProductPrice">Rp 1.500.000</h1>
-            <h2 className="detailStock">Stok Produk : 20</h2>
-            <p>
-              Deskripsi Produk:
-              <br /> Colorway : Core Black Article : (FX8384) Brand New in Box
-              (BNIB) / Tag (BNWT) Online. On The Streets. Always Moving. These
-              Adidas Running Shoes Keep Pace With It All. A Breathable Mesh
-              Upper Sheds Heat On Warm Days While Bounce Cushioning Provides
-              Comfort And Flexibility. This Pair Of Shoes Features An
-              Algae-based Eva Foam.
-            </p>
-          </div>
-          <LongButton text={"Tambah ke Keranjang"} />
-        </section>
-      </div>
-    </>
-  );
+  let params = useParams();
+
+  const [isReady, setIsReady] = useState(false);
+  const [dataProductId, setDataProductId] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    await axios
+      .get(`/products/${params.id}`)
+      .then((response) => {
+        setDataProductId(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((err) => {
+        console.log("error");
+      })
+      .finally(() => setIsReady(true));
+  };
+
+  // const createToCart = async () => {
+  //   await axios
+  //     .post(`/carts`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       //  setMovies(response.data.results.slice(0, 8));
+  //     })
+  //     .catch((err) => {
+  //       console.log("error");
+  //     })
+  //     .finally(() => setIsReady(true));
+  // };
+
+  let result;
+  if (isReady) {
+    result = (
+      <>
+        <div className="detailContainer">
+          <section className="leftSectionDetail">
+            <div
+              className="detailImg"
+              style={{
+                backgroundImage: `url(${dataProductId.image})`,
+                // backgroundImage: `url("")`,
+              }}
+            ></div>
+          </section>
+          <section className="rightSectionDetail">
+            <div className="detailContent">
+              <h1 className="detailProductName">
+                {dataProductId.name_product}
+              </h1>
+              <h1 className="detailProductPrice">Rp {dataProductId.price}</h1>
+              <h2 className="detailStock">
+                Stok Produk : {dataProductId.stock}
+              </h2>
+              <p>
+                Deskripsi Produk:
+                <br />
+                {dataProductId.description}
+              </p>
+            </div>
+            <LongButton text={"Tambah ke Keranjang"} />
+          </section>
+        </div>
+      </>
+    );
+  } else {
+    result = <LoadSpin />;
+  }
+
+  return <>{result};</>;
 }
