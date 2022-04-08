@@ -13,13 +13,13 @@ export default function SignIn() {
   const handleSignUp = async (e) => {
     e.preventDefault();
     await axios
-    .post("2.87.250.27:8080/api/v1/users",
+    .post("http://52.87.250.27:8080/api/v1/auth/",
     {
         username: 'username',
-        email: 'email',
         password: 'password',
       })
       .then((response) => {
+        localStorage.setItem("token", JSON.stringify(response.data.token));
         console.log(response.data)
       })
       .catch((error) => {

@@ -33,13 +33,13 @@ export default function Register() {
     <div className="signupWrapper">
       <div className="signupBox">
         <div className="signupContent">
-          <h2>Masuk</h2>
-          <p>Masuk untuk berbelanja</p>
+          <h2>Daftar</h2>
+          <p>Daftar dan Bergabung dengan Kami</p>
           <form>
             <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Username Anda" />
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email Anda" />
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Kata Sandi Anda" />
-            <button type="button" onClick={handleSignUp}>Daftar</button>
+            <button type="button" onClick={() => handleSignUp()}>Daftar</button>
           </form>
         </div>
       </div>
