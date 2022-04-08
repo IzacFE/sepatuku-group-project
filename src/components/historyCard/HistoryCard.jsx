@@ -29,7 +29,7 @@ export default function HistoryCard() {
 
           <div className="cancelContainer">
             <p>
-              <i class="fa-regular fa-circle-xmark" />
+              <i className="fa-regular fa-circle-xmark" />
               <br />
               Batalkan Pesanan
             </p>
