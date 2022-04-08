@@ -1,0 +1,89 @@
+.orderContainer {
+    margin-top: 7.18rem;
+    width: 80%;
+}
+
+.orderBox {
+        width: 100%;
+        border: 1px solid var(--main-secondary);
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-bottom: 2rem;
+}
+
+.orderBox input {
+    display: block;
+    border-radius: 50rem;
+    width: 85%;
+    padding: .375rem .75rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 1px solid #bebbbb;
+    align-items: center;
+    margin-top: 1.87rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.orderTeksKartu {
+    margin-top: 2.18rem;
+}
+
+.orderInputKartu select {
+    margin-top: 1.87rem;
+    margin-left: 5.375rem;
+}
+
+.orderNomorKartu, .orderKode {
+    display: inline-block !important;
+}
+
+.orderNomorKartu {
+    width: 55% !important;
+    margin-left: 5.375rem !important;
+    margin-right: 1rem !important;
+}
+
+.orderKode {
+    width: 28% !important;
+}
+
+.orderTeksExp, .orderBulanExp, .orderTahunExp {
+    display: inline-block !important;
+}
+
+.orderTeksExp {
+    margin-top: 1.87rem;
+    margin-left: 5.375rem;
+    margin-right: 3rem !important;
+}
+.orderBulanExp {
+    width: 33% !important;
+    margin-right: 3rem !important;
+    
+}
+
+.orderTahunExp {
+    width: 33% !important;
+}
+
+.orderTeksPembayaran {
+    margin-top: 2.18rem;
+}
+
+.orderLihatPembayaran p{
+    display: inline-block;
+    margin-top: 1.87rem;
+}
+
+.orderContainer button {
+    display: inline-block;
+    background-color: #19345e;
+    color: #fff;
+    padding: .5rem 1rem;
+    font-size: 1.25rem;
+    border-radius: .3rem;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+}
