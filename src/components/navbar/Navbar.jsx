@@ -12,20 +12,17 @@ export default function Navbar() {
       <label htmlFor="check" className="checkbtn">
         <i className="fas fa-bars"></i>
       </label>
-      <div className="navbarLogo">
+      <div
+        className="navbarLogo"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
         <div className="navLogoImg" />
         <h1 className="navLogoText">SEPATUKU</h1>
       </div>
 
       <ul className="ulNavbar">
-        <li
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          <h3 className="navHomeButton">Beranda</h3>
-        </li>
-
         <li
           className="navCartButton"
           onClick={() => {
