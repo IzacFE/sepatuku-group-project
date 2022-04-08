@@ -10,16 +10,17 @@ export default function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignUp = async (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
     await axios
-      .post("/auth", {
-        username: "username",
-        email: "email",
-        password: "password",
+      .post(`/auth`, {
+        identifier: username,
+        password: password,
       })
       .then((response) => {
         console.log(response.data);
+        localStorage.setItem("token", response.data.data.token);
+        // navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -32,7 +33,7 @@ export default function SignIn() {
         <div className="signinContent">
           <h2>Masuk</h2>
           <p>Masuk untuk berbelanja</p>
-          <form onSubmit={(e) => handleSignUp(e)}>
+          <form>
             <input
               type="text"
               value={username}
@@ -45,7 +46,7 @@ export default function SignIn() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Kata Sandi Anda"
             />
-            <button>Masuk</button>
+            <button onClick={(e) => handleSignIn(e)}>Masuk</button>
           </form>
         </div>
       </div>
