@@ -12,7 +12,7 @@ export default function Home() {
   const [isReady, setIsReady] = useState(false);
   const [dataProduct, setDataProduct] = useState([]);
   const [displayedData, setDisplayedData] = useState([]);
-  const [sliceValue, setSliceValue] = useState(10);
+  const [sliceValue, setSliceValue] = useState(16);
 
   useEffect(() => {
     fetchData();
@@ -23,7 +23,7 @@ export default function Home() {
       .get(`/products`)
       .then((response) => {
         setDataProduct(response.data.data);
-        setDisplayedData(response.data.data.slice(2, 10));
+        setDisplayedData(response.data.data.slice(0, 8));
       })
       .catch((err) => {
         console.log("error");
@@ -43,12 +43,11 @@ export default function Home() {
       });
     });
     setDisplayedData(filteredData);
-    console.log(filteredData);
   };
 
   let result;
   if (isReady) {
-    let sliced = dataProduct.slice(2, sliceValue);
+    let sliced = dataProduct.slice(0, sliceValue);
     result = (
       <>
         <div className="homeSearch">
@@ -87,7 +86,7 @@ export default function Home() {
           className="longButtonContainer viewMoreHome"
           onClick={async () => {
             await setSliceValue(sliceValue + 8);
-            setDisplayedData(dataProduct.slice(2, sliceValue));
+            setDisplayedData(dataProduct.slice(0, sliceValue));
           }}
         >
           <p>Perlihatkan Lebih</p>

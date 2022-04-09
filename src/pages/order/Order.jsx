@@ -27,13 +27,6 @@ export default function Order() {
   console.log('bulan:', bulan);
   console.log('tahun:', tahun);
 
-  const handlerOrder = async () => {
-    await axios
-    .post(`/products`, {
-      
-    })
-
-  }
 
   return (
     <div className="orderContainer">

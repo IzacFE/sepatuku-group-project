@@ -25,9 +25,8 @@ export default function SignIn() {
         password: password,
       })
       .then((response) => {
-        console.log(response.data);
-        alert('berhasil masuk');
-        localStorage.setItem('token', response.data.data.token);
+        localStorage.setItem("token", response.data.data.token);
+        alert("login sukses");
         navigate("/");
       })
       .catch((error) => {

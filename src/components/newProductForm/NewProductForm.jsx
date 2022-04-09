@@ -9,18 +9,30 @@ const useInputValue = (initialValue) => {
     onChange: (e) => {
       setValue(e.target.value);
     },
-    resetTitle: () => {
+    resetName: () => {
       setValue("");
     },
     resetDescrip: () => {
+      setValue("");
+    },
+    resetPrice: () => {
+      setValue("");
+    },
+    resetStock: () => {
+      setValue("");
+    },
+    resetPicture: () => {
       setValue("");
     },
   };
 };
 
 export default function NewProductForm({ onSubmit }) {
-  const { resetTitle, ...listTitle } = useInputValue("");
-  const { resetDescrip, ...listDescription } = useInputValue("");
+  const { resetName, ...nameProduct } = useInputValue("");
+  const { resetDescrip, ...description } = useInputValue("");
+  const { resetPrice, ...price } = useInputValue(0);
+  const { resetStock, ...stock } = useInputValue(0);
+  const { resetPicture, ...picture } = useInputValue("");
 
   return (
     <>
@@ -28,39 +40,49 @@ export default function NewProductForm({ onSubmit }) {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            onSubmit(listTitle.value, listDescription.value);
-            resetTitle();
+            onSubmit(
+              nameProduct.value,
+              description.value,
+              price.value,
+              stock.value,
+              picture.value
+            );
+            resetName();
             resetDescrip();
+            resetPrice();
+            resetStock();
+            resetPicture();
+            console.log(e);
           }}
         >
           <input
             className="newProductForm"
             type="text"
-            // {...listTitle}
+            {...nameProduct}
             placeholder="Nama Produk"
           />
           <input
             className="newProductForm"
             type="text"
-            // {...listTitle}
+            {...description}
             placeholder="Deskripsi Produk"
           />
           <input
             className="newProductForm"
             type="text"
-            //   {...listDescription}
+            {...price}
             placeholder="Harga Produk"
           />
           <input
             className="newProductForm"
             type="text"
-            //   {...listDescription}
+            {...stock}
             placeholder="Stok Produk"
           />
           <input
             className="newProductForm"
             type="text"
-            //   {...listDescription}
+            {...picture}
             placeholder="url gambar"
           />
           <input className="newProductButton" type="submit" value="Tambah" />

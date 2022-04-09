@@ -9,16 +9,21 @@ export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [address, setAddress] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (e) => {
     await axios
       .post("users/", {
         username: username,
         email: email,
         password: password,
+        address: address,
+        phone: phone,
       })
       .then((response) => {
         console.log(response.data);
+        navigate("/signin");
       })
       .catch((err) => {
         console.log(err);
@@ -50,12 +55,21 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Kata Sandi Anda"
             />
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Alamat Anda"
+            />
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              placeholder="Nomor Hp Anda"
+            />
             <button
               type="button"
-              onClick={() => {
-                handleSignUp();
-                navigate("/signin");
-              }}
+              onClick={(e) => handleSignUp(e)}
             >
               Daftar
             </button>
