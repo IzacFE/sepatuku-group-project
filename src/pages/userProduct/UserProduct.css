@@ -1,0 +1,22 @@
+.userProductLayout {
+  width: 80%;
+}
+
+.profileProductHeader {
+  margin-top: 3rem;
+  margin-left: 5px;
+}
+
+.profileProdukDagangan {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .profileProductHeader {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    margin-left: 5px;
+  }
+}

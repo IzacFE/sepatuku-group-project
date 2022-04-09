@@ -1,7 +1,7 @@
 .produkUserContainer {
   display: flex;
   justify-content: space-between;
-  width: 435px;
+  width: 350px;
   /* max-width: 500px; */
   /* min-width: 400px; */
   border: 1px solid var(--main-secondary);
@@ -16,35 +16,28 @@
   background-position: center;
 }
 
-.produkUserDetail {
-  width: 35%;
-  display: grid;
-  place-items: center;
+.productUserInfo {
+  width: 150px;
+  padding: 10px;
+  /* display: grid;
+  place-items: center; */
 }
 
-.produkUserDetail h2 {
+.productUserInfo h2 {
   font-size: 1.2rem;
   margin: auto;
 }
 
-.produkUserButtons {
-  width: 20%;
-  min-width: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-left: 1px solid var(--main-secondary);
+.productProfileEllipContain {
+  width: 100%;
+  margin-left: 80%;
 }
 
-.profileRemoveProduct {
-  /* width: 20px; */
-  /* margin: auto; */
-  text-align: center;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.profileRemoveProduct i {
-  color: red;
-  font-size: 2rem;
+.productProfileEllipsis {
+  background-color: var(--main-secondary);
+  width: 30px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
 }

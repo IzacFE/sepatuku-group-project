@@ -30,13 +30,14 @@ const useInputValue = (initialValue) => {
 export default function NewProductForm({ onSubmit }) {
   const { resetName, ...nameProduct } = useInputValue("");
   const { resetDescrip, ...description } = useInputValue("");
-  const { resetPrice, ...price } = useInputValue(0);
-  const { resetStock, ...stock } = useInputValue(0);
+  const { resetPrice, ...price } = useInputValue("");
+  const { resetStock, ...stock } = useInputValue("");
   const { resetPicture, ...picture } = useInputValue("");
 
   return (
     <>
       <section className="newFormContainer">
+        <h2 className="newProductHeader">Tambah Produk Dagangan</h2>
         <form
           onSubmit={(e) => {
             e.preventDefault();

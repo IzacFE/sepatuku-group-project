@@ -19,6 +19,7 @@ export default function SignIn() {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.data.token);
+        window.location.reload(false);
         alert("login sukses");
         navigate("/");
       })

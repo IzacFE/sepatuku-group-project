@@ -24,8 +24,8 @@ export default function Detail() {
       .get(`/products/${params.id}`)
       .then((response) => {
         setDataProductId(response.data.data);
+        console.log(response.data.data);
         setToken(localStorage.getItem("token"));
-        console.log(localStorage.getItem("token"));
       })
       .catch((err) => {
         console.log("error");
@@ -33,22 +33,31 @@ export default function Detail() {
       .finally(() => setIsReady(true));
   };
 
-  // const createToCart = async () => {
-  //   await axios
-  //     .post(`/carts`)
-  //     .then((response) => {
-  //       console.log(response);
-  //       //  setMovies(response.data.results.slice(0, 8));
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     })
-  //     .finally(() => setIsReady(true));
-  // };
+  const createToCart = async () => {
+    await axios
+      .post(
+        `/carts`,
+        { user_id: dataProductId.user_id, product_id: dataProductId.ID },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        alert("berhasil");
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("gagal");
+      })
+      .finally(() => setIsReady(true));
+  };
 
   const addCart = () => {
     if (token) {
-      console.log("token terdeteksi");
+      createToCart();
     } else {
       navigate("/signin");
     }
@@ -85,7 +94,6 @@ export default function Detail() {
             <LongButton
               onClick={() => {
                 addCart();
-                console.log("clicked");
               }}
               text={"Tambah ke Keranjang"}
             />

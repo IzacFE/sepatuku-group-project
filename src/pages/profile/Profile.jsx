@@ -4,119 +4,131 @@ import { useNavigate } from "react-router-dom";
 import "./Profile.css";
 
 import ProfileCard from "../../components/profileCard/ProfileCard";
-import ProdukProfile from "../../components/produkProfile/ProdukProfile";
-import NewProductForm from "../../components/newProductForm/NewProductForm";
+import LongButton from "../../components/longButton/LongButton";
+import LoadSpin from "../../components/loadSpin/LoadSpin";
 
 export default function Profile() {
   const navigate = useNavigate();
-  // const [isReady, setIsReady] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+  const [profileData, setProfileData] = useState([]);
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  const [image, setImage] = useState("");
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [address, setAddress] = useState("");
 
-  // const fetchData = async () => {
-  //   await axios
-  //     .get(`/products/${"id"}`)
-  //     .then((response) => {
-  //       console.log(response);
-  //       //  setMovies(response.data.results.slice(0, 8));
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     })
-  //     .finally(() => setIsReady(true));
-  // };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  // const updateData = async () => {
-  //   await axios
-  //     .put(`/products/${"id"}`,{username:"",email,password})
-  //     .then((response) => {
-  //       console.log(response);
-  //       //  setMovies(response.data.results.slice(0, 8));
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     })
-  //     .finally(() => setIsReady(true));
-  // };
-
-  // const deleteData = async () => {
-  //   await axios
-  //     .delete(`52.87.250.27:8080/api/v1/products/${"id"}`)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     })
-  //     .finally(() => setIsReady(true));
-  // };
-
-  // const createData = async () => {
-  //   await axios
-  //     .post(`52.87.250.27:8080/api/v1/products/`)
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //     .catch((err) => {
-  //       console.log("error");
-  //     })
-  //     .finally(() => setIsReady(true));
-  // };
-
-  const addProduct = async (title, descrip) => {
+  const fetchData = async () => {
     await axios
-      .post(
-        `/products`
-        // {name_products:}
-      )
-      .then(alert("success"))
-      .catch((error) => console.log(error));
+      .get(`/users/`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((response) => {
+        setProfileData(response.data.data_user);
+        console.log(response.data.data_user);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => setIsReady(true));
   };
 
-  return (
-    <div className="profileContainer">
-      <div className="profileBio">
-        <ProfileCard />
-      </div>
+  const editSubmit = (e) => {
+    console.log(image);
+  };
 
-      <h2 className="profileProductHeader">Tambah Produk Dagangan</h2>
-      <div className="newProductContainer">
-        <NewProductForm
-          onSubmit={(nameProduct, description, price, stock, picture) => {
-            addProduct(nameProduct, description, price, stock, picture);
-          }}
-        />
-      </div>
+  let result;
+  if (isReady) {
+    result = (
+      <div className="profileContainer">
+        <div className="profileBio">
+          <ProfileCard
+            name={profileData.username}
+            email={profileData.email}
+            contactNumber={profileData.phone}
+            address={profileData.address}
+          >
+            <LongButton
+              text={"Riwayat Pembelian"}
+              onClick={() => {
+                navigate("/history");
+              }}
+            />
+            <LongButton
+              text={"Produk Dagangan"}
+              onClick={() => {
+                navigate("/user-product");
+              }}
+            />
+          </ProfileCard>
+        </div>
 
-      <h2 className="profileProductHeader">Produk Dagangan</h2>
-      <div className="profileProdukDagangan">
-        <ProdukProfile
-          onClick={() => {
-            navigate("/detail");
-          }}
-          // clickEdit={() => {
-          //   navigate("/edit");
-          // }}
-        />
-        <ProdukProfile
-          onClick={() => {
-            navigate("/detail");
-          }}
-          // clickEdit={() => {
-          //   navigate("/edit");
-          // }}
-        />
-        <ProdukProfile
-          onClick={() => {
-            navigate("/detail");
-          }}
-          // clickEdit={() => {
-          //   navigate("/edit");
-          // }}
-        />
+        <div className="profileEdit">
+          <h2>Edit Profile</h2>
+          <form action="" className="profileEditForm">
+            <input
+              type="text"
+              value={image}
+              onChange={(e) => {
+                setImage(e.target.value);
+              }}
+              placeholder={`Gambar Profile`}
+            />
+            <input
+              type="text"
+              value={userName}
+              onChange={(e) => {
+                setUserName(e.target.value);
+              }}
+              placeholder={`Username`}
+            />
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              placeholder={`Email`}
+            />
+            <input
+              type="text"
+              value={contact}
+              onChange={(e) => {
+                setContact(e.target.value);
+              }}
+              placeholder={`Nomor Kontak`}
+            />
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => {
+                setAddress(e.target.value);
+              }}
+              placeholder={`Alamat`}
+            />
+            <LongButton
+              text="Rubah"
+              onClick={(e) => {
+                editSubmit(e);
+              }}
+            />
+          </form>
+        </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    result = (
+      <>
+        <LoadSpin />
+      </>
+    );
+  }
+
+  return result;
 }

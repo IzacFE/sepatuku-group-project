@@ -10,7 +10,7 @@ import Cart from "../pages/cart/Cart";
 import Order from "../pages/order/Order";
 import History from "../pages/history/History";
 import Layout from "../components/layout/Layout";
-import Edit from "../pages/edit/Edit";
+import UserProduct from "../pages/userProduct/UserProduct";
 
 export default function WebRoutes() {
   return (
@@ -23,7 +23,7 @@ export default function WebRoutes() {
             <Route path="/register" element={<Register />} />
             <Route path="/signin" element={<SignIn />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/edit" element={<Edit />} />
+            <Route path="/user-product" element={<UserProduct />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/order" element={<Order />} />
             <Route path="/history" element={<History />} />
