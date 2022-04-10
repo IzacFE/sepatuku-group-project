@@ -18,6 +18,8 @@ export default function Order() {
   const [cvv, setCvv] = useState("");
   const [bulan, setBulan] = useState("");
   const [tahun, setTahun] = useState("");
+  const [quantity, setQuantuty] = useState("");
+  const [totalPrice, setTotalPrice] = useState("");
   const [alertError, setAlertError] = useState();
 
   useEffect(() => {
@@ -28,7 +30,7 @@ export default function Order() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  },[])
 
   // console.log('alamat:', alamat);
   // console.log('kota:', kota);
@@ -56,6 +58,8 @@ export default function Order() {
           cvv: cvv,
           expired_month: bulan,
           expired_year: tahun,
+          total_qty: quantity,
+          total_price: totalPrice,
         },
         {
           headers: {
