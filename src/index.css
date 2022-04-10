@@ -1,6 +1,6 @@
 :root {
   font-size: 16px;
-  /* font-family: "Lato"; */
+  /* font-family: "Lato" !important; */
   --text-primary: #000000;
   --text-secondary: #ffffff;
   --text-blue: #19345e;

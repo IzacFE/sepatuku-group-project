@@ -3,9 +3,12 @@ import axios from "axios";
 import "./Cart.css";
 
 import LongButton from "../../components/longButton/LongButton";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
   const [isReady, setIsReady] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -13,56 +16,60 @@ export default function Cart() {
 
   const fetchData = async () => {
     await axios
-      .get(`/carts`)
+      .get(`/carts`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
       .then((response) => {
         console.log(response);
         //  setMovies(response.data.results.slice(0, 8));
       })
       .catch((err) => {
-        console.log("error");
+        console.log(err);
       })
       .finally(() => setIsReady(true));
   };
 
-  const updateData = async () => {
-    await axios
-      .put(`/carts/${"id"}`)
-      .then((response) => {
-        console.log(response);
-        //  setMovies(response.data.results.slice(0, 8));
-      })
-      .catch((err) => {
-        console.log("error");
-      })
-      .finally(() => setIsReady(true));
-  };
+  // const updateData = async () => {
+  //   await axios
+  //     .put(`/carts/${"id"}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       //  setMovies(response.data.results.slice(0, 8));
+  //     })
+  //     .catch((err) => {
+  //       console.log("error");
+  //     })
+  //     .finally(() => setIsReady(true));
+  // };
 
-  const deleteData = async () => {
-    await axios
-      .delete(`/carts/${"id"}`)
-      .then((response) => {
-        console.log(response);
-        //  setMovies(response.data.results.slice(0, 8));
-      })
-      .catch((err) => {
-        console.log("error");
-      })
-      .finally(() => setIsReady(true));
-  };
+  // const deleteData = async () => {
+  //   await axios
+  //     .delete(`/carts/${"id"}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       //  setMovies(response.data.results.slice(0, 8));
+  //     })
+  //     .catch((err) => {
+  //       console.log("error");
+  //     })
+  //     .finally(() => setIsReady(true));
+  // };
 
-  // MASIH SALAH
-  const createOrder = async () => {
-    await axios
-      .post(`52.87.250.27:8080/api/v1/carts/${"id"}`)
-      .then((response) => {
-        console.log(response);
-        //  setMovies(response.data.results.slice(0, 8));
-      })
-      .catch((err) => {
-        console.log("error");
-      })
-      .finally(() => setIsReady(true));
-  };
+  // // MASIH SALAH
+  // const createOrder = async () => {
+  //   await axios
+  //     .post(`52.87.250.27:8080/api/v1/carts/${"id"}`)
+  //     .then((response) => {
+  //       console.log(response);
+  //       //  setMovies(response.data.results.slice(0, 8));
+  //     })
+  //     .catch((err) => {
+  //       console.log("error");
+  //     })
+  //     .finally(() => setIsReady(true));
+  // };
 
   return (
     <>
@@ -134,7 +141,7 @@ export default function Cart() {
                 <LongButton
                   text={"Pesan Sekarang"}
                   onClick={() => {
-                    console.log("pesan");
+                    navigate("/order");
                   }}
                 />
               </div>

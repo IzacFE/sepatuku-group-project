@@ -1,6 +1,7 @@
 import React from "react";
 import "./ProdukProfile.css";
-import LongButton from "../longButton/LongButton";
+
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 
 export default function ProdukProfile(props) {
   return (
@@ -9,24 +10,31 @@ export default function ProdukProfile(props) {
         <div
           className="produkUserImg"
           style={{
-            backgroundImage: `url(https://pyxis.nymag.com/v1/imgs/a98/d0a/ad37aae9d281b562d1afe26fdc8a28cbd6.rsquare.w600.jpg)`,
+            backgroundImage: `url(${props.image})`,
           }}
         />
-        <div className="produkUserDetail">
+        <div className="productUserInfo">
+          <OverlayTrigger
+            key={"left"}
+            placement={"left"}
+            overlay={
+              <Tooltip id={"left"}>
+                <strong>Klik</strong> untuk informasi lebih
+              </Tooltip>
+            }
+          >
+            <div className="productProfileEllipContain">
+              <i
+                className="fa-solid fa-ellipsis productProfileEllipsis"
+                onClick={props.onClick}
+              />
+            </div>
+          </OverlayTrigger>
           <h2>
-            Fila Gladiator
+            {props.name}
             <br />
-            Rp 1.500.000
+            {props.price}
           </h2>
-        </div>
-        <div className="produkUserButtons">
-          <LongButton text={"Detail"} onCLick={props.onClick} />
-          <LongButton text={"Edit"} onCLick={props.clickEdit} />
-          <div className="profileRemoveProduct">
-            <i className="fa-regular fa-circle-xmark" />
-            <br />
-            Hapus
-          </div>
         </div>
       </div>
     </>

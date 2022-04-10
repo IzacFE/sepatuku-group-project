@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./NewProductForm.css";
+import "./ProductForm.css";
 
 const useInputValue = (initialValue) => {
   const [value, setValue] = useState(initialValue);
@@ -30,8 +30,8 @@ const useInputValue = (initialValue) => {
 export default function NewProductForm({ onSubmit }) {
   const { resetName, ...nameProduct } = useInputValue("");
   const { resetDescrip, ...description } = useInputValue("");
-  const { resetPrice, ...price } = useInputValue(0);
-  const { resetStock, ...stock } = useInputValue(0);
+  const { resetPrice, ...price } = useInputValue("");
+  const { resetStock, ...stock } = useInputValue("");
   const { resetPicture, ...picture } = useInputValue("");
 
   return (
@@ -69,13 +69,13 @@ export default function NewProductForm({ onSubmit }) {
           />
           <input
             className="newProductForm"
-            type="text"
+            type="number"
             {...price}
             placeholder="Harga Produk"
           />
           <input
             className="newProductForm"
-            type="text"
+            type="number"
             {...stock}
             placeholder="Stok Produk"
           />
@@ -85,7 +85,7 @@ export default function NewProductForm({ onSubmit }) {
             {...picture}
             placeholder="url gambar"
           />
-          <input className="newProductButton" type="submit" value="Tambah" />
+          <input className="newProductButton" type="submit" value="Ajukan" />
         </form>
       </section>
     </>
