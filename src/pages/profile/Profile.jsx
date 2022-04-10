@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Profile.css";
 
 import ProfileCard from "../../components/profileCard/ProfileCard";
@@ -13,8 +13,9 @@ export default function Profile() {
   const [profileData, setProfileData] = useState([]);
 
   const [image, setImage] = useState("");
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [contact, setContact] = useState("");
   const [address, setAddress] = useState("");
 
@@ -22,7 +23,7 @@ export default function Profile() {
     fetchData();
   }, []);
 
-  const fetchData = async () => {
+  const fetchData = async (e) => {
     await axios
       .get(`/users/`, {
         headers: {
@@ -39,8 +40,34 @@ export default function Profile() {
       .finally(() => setIsReady(true));
   };
 
-  const editSubmit = (e) => {
-    console.log(image);
+  const editSubmit = async () => {
+    setIsReady(false);
+    await axios
+      .put(
+        `/users/`,
+        {
+          username,
+          email,
+          password,
+          address,
+          phone: contact,
+          avatar: image,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((response) => {
+        alert("berhasil");
+      })
+      .catch((err) => {
+        alert(err);
+        console.log(err);
+      });
+    // .finally(() => setIsReady(true));
+    await fetchData();
   };
 
   let result;
@@ -49,21 +76,22 @@ export default function Profile() {
       <div className="profileContainer">
         <div className="profileBio">
           <ProfileCard
+            image={profileData.avatar}
             name={profileData.username}
             email={profileData.email}
             contactNumber={profileData.phone}
             address={profileData.address}
           >
             <LongButton
-              text={"Riwayat Pembelian"}
-              onClick={() => {
-                navigate("/history");
-              }}
-            />
-            <LongButton
               text={"Produk Dagangan"}
               onClick={() => {
                 navigate("/user-product");
+              }}
+            />
+            <LongButton
+              text={"Riwayat Pembelian"}
+              onClick={() => {
+                navigate("/history");
               }}
             />
           </ProfileCard>
@@ -82,9 +110,9 @@ export default function Profile() {
             />
             <input
               type="text"
-              value={userName}
+              value={username}
               onChange={(e) => {
-                setUserName(e.target.value);
+                setUsername(e.target.value);
               }}
               placeholder={`Username`}
             />
@@ -95,6 +123,14 @@ export default function Profile() {
                 setEmail(e.target.value);
               }}
               placeholder={`Email`}
+            />
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              placeholder={`password`}
             />
             <input
               type="text"

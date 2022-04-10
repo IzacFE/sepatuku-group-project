@@ -7,7 +7,7 @@ export default function ProfileCard(props) {
       <section
         className="profileAvatar"
         style={{
-          backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png)`,
+          backgroundImage: `url(${props.image})`,
         }}
       />
 

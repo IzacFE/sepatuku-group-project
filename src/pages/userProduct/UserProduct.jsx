@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./UserProduct.css";
 
-import NewProductForm from "../../components/newProductForm/NewProductForm";
+import ProductForm from "../../components/newProductForm/ProductForm";
 import ProdukProfile from "../../components/produkProfile/ProdukProfile";
 import LoadSpin from "../../components/loadSpin/LoadSpin";
 
@@ -42,18 +42,30 @@ export default function UserProduct() {
     stock,
     picture
   ) => {
-    console.log(nameProduct);
-    console.log(description);
-    console.log(price);
-    console.log(stock);
-    console.log(picture);
-    // await axios
-    //   .post(
-    //     `/products`
-    //     // {name_products:}
-    //   )
-    //   .then(alert("success"))
-    //   .catch((error) => console.log(error));
+    let priceInt = +price;
+    let stockInt = +stock;
+
+    setIsReady(true);
+    await axios
+      .post(
+        `/products`,
+        {
+          name_product: nameProduct,
+          description,
+          price: priceInt,
+          image: picture,
+          stock: stockInt,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+        // {name_products:}
+      )
+      .then(alert("success"))
+      .catch((error) => console.log(error));
+    fetchData();
   };
 
   // const updateData = async () => {
@@ -98,7 +110,8 @@ export default function UserProduct() {
       <>
         <div className="userProductLayout">
           <div className="newProductContainer">
-            <NewProductForm
+            <h2 className="profileProductHeader">Tambah Produk Dagangan</h2>
+            <ProductForm
               onSubmit={(nameProduct, description, price, stock, picture) => {
                 addProduct(nameProduct, description, price, stock, picture);
               }}
@@ -106,30 +119,19 @@ export default function UserProduct() {
           </div>
           <h2 className="profileProductHeader">Produk Dagangan</h2>
           <div className="profileProdukDagangan">
-            <ProdukProfile
-              onClick={() => {
-                navigate("/");
-              }}
-              // clickEdit={() => {
-              //   navigate("/edit");
-              // }}
-            />
-            <ProdukProfile
-              onClick={() => {
-                navigate("/detail");
-              }}
-              // clickEdit={() => {
-              //   navigate("/edit");
-              // }}
-            />
-            <ProdukProfile
-              onClick={() => {
-                navigate("/detail");
-              }}
-              // clickEdit={() => {
-              //   navigate("/edit");
-              // }}
-            />
+            {productData.map((item) => {
+              return (
+                <ProdukProfile
+                  image={item.image}
+                  name={item.name_product}
+                  price={item.price}
+                  onClick={() => {
+                    navigate(`/user-product/${item.ID}`);
+                    console.log("clicked");
+                  }}
+                />
+              );
+            })}
           </div>
         </div>
       </>

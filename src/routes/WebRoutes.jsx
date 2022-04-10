@@ -11,6 +11,7 @@ import Order from "../pages/order/Order";
 import History from "../pages/history/History";
 import Layout from "../components/layout/Layout";
 import UserProduct from "../pages/userProduct/UserProduct";
+import EditProduct from "../pages/editUserProduct/EditProduct";
 
 export default function WebRoutes() {
   return (
@@ -24,6 +25,7 @@ export default function WebRoutes() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/user-product" element={<UserProduct />} />
+            <Route path="/user-product/:id" element={<EditProduct />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/order" element={<Order />} />
             <Route path="/history" element={<History />} />

@@ -1,3 +1,9 @@
+.newProductContainer {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .userProductLayout {
   width: 80%;
 }
@@ -10,7 +16,23 @@
 .profileProdukDagangan {
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
+  margin-bottom: 5vh;
+}
+
+.buttonDeleteProduct {
+  cursor: pointer;
+  user-select: none;
+}
+
+.buttonDeleteProduct p {
+  margin: 0;
+  margin-top: 2.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.buttonDeleteProduct p i {
+  color: red;
 }
 
 @media (max-width: 600px) {
@@ -18,5 +40,9 @@
     margin-top: 2rem;
     font-size: 1.3rem;
     margin-left: 5px;
+  }
+
+  .buttonDeleteProduct p {
+    font-size: 1.3rem;
   }
 }
