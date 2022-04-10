@@ -29,6 +29,7 @@
 
 .homeProductContainer {
   width: 80%;
+  margin: 1rem 0;
   padding: 1.1rem;
   display: flex;
   flex-wrap: wrap;
@@ -36,8 +37,8 @@
 }
 
 .viewMoreHome {
-  width: 200px !important;
-  margin-bottom: 20px;
+  width: 250px !important;
+  margin-bottom: 2rem;
 }
 
 @media (max-width: 1000px) {
@@ -49,5 +50,11 @@
 @media (max-width: 750px) {
   .searchForm {
     width: 80%;
+  }
+
+  .viewMoreHome {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    width: 180px !important;
   }
 }

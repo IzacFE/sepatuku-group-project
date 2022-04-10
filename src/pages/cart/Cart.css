@@ -18,6 +18,7 @@
 .cartListContainer {
   border-top: 3px solid var(--main-secondary);
   border-bottom: 3px solid var(--main-secondary);
+  padding-bottom: 1.5rem;
 }
 
 .cartHeaderTable p {
@@ -50,12 +51,17 @@
   min-height: 200px;
   min-width: 200px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
 }
 
 .cartProductContainer {
   padding: 20px;
   display: flex;
+  -webkit-box-shadow: 0 8px 6px -6px var(--main-secondary);
+  -moz-box-shadow: 0 8px 6px -6px var(--main-secondary);
+  box-shadow: 0 8px 6px -6px var(--main-secondary);
+
   /* flex-wrap: wrap; */
 }
 
@@ -77,8 +83,39 @@
 
 .cartQuantity {
   text-align: center;
-  width: 12%;
+  /* width: 12%; */
   margin: auto;
+}
+
+.quantityButton {
+  /* padding: 3px; */
+  width: 65px;
+  border: 1px solid var(--main-secondary);
+  display: flex;
+  margin: auto;
+}
+
+.itemQuantity {
+  width: 25px;
+  margin-bottom: 0;
+}
+
+.quantityButton i {
+  padding: 3px;
+  cursor: pointer;
+  margin: auto;
+}
+
+.quantityButton i:hover {
+  box-shadow: 0 0 5px var(--main-secondary);
+}
+
+.quantityButton i:first-child {
+  border-right: 1px solid var(--main-secondary);
+}
+
+.quantityButton i:last-child {
+  border-left: 1px solid var(--main-secondary);
 }
 
 .cartTotalProduct {
@@ -91,11 +128,20 @@
   margin: auto;
   text-align: center;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .cartRemoveProduct i {
   color: red;
   font-size: 2rem;
+}
+
+.cartRemoveProduct:hover {
+  color: red;
+}
+
+.cartRemoveProduct:hover i {
+  font-size: 2.2rem;
 }
 
 .cartMobile {
@@ -196,6 +242,11 @@
   .cartProduct {
     flex-direction: column;
     align-items: center;
+  }
+
+  .quantityButton {
+    /* padding: 3px; */
+    width: 55px;
   }
 
   .cartDescription {

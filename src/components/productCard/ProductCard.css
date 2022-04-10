@@ -37,8 +37,16 @@
   .productCardImg {
     height: 250px;
     width: 100%;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 500px) {
+  .productCardContainer {
+    height: 275px;
+  }
+
+  .productCardImg {
+    height: 200px;
+    width: 100%;
   }
 }

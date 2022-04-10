@@ -31,7 +31,7 @@ export default function NewProductForm({ onSubmit }) {
   const { resetName, ...nameProduct } = useInputValue("");
   const { resetDescrip, ...description } = useInputValue("");
   const { resetPrice, ...price } = useInputValue("");
-  const { resetStock, ...stock } = useInputValue("");
+  // const { resetStock, ...stock } = useInputValue("");
   const { resetPicture, ...picture } = useInputValue("");
 
   return (
@@ -44,13 +44,13 @@ export default function NewProductForm({ onSubmit }) {
               nameProduct.value,
               description.value,
               price.value,
-              stock.value,
+              // stock.value,
               picture.value
             );
             resetName();
             resetDescrip();
             resetPrice();
-            resetStock();
+            // resetStock();
             resetPicture();
             console.log(e);
           }}
@@ -73,17 +73,17 @@ export default function NewProductForm({ onSubmit }) {
             {...price}
             placeholder="Harga Produk"
           />
-          <input
+          {/* <input
             className="newProductForm"
             type="number"
             {...stock}
             placeholder="Stok Produk"
-          />
+          /> */}
           <input
             className="newProductForm"
             type="text"
             {...picture}
-            placeholder="url gambar"
+            placeholder="Url Gambar"
           />
           <input className="newProductButton" type="submit" value="Ajukan" />
         </form>

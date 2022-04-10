@@ -33,7 +33,7 @@ export default function ProdukProfile(props) {
           <h2>
             {props.name}
             <br />
-            {props.price}
+            Rp {props.price}
           </h2>
         </div>
       </div>

@@ -39,11 +39,11 @@ export default function EditProduct() {
     nameProduct,
     description,
     price,
-    stock,
+    // stock,
     picture
   ) => {
     let priceInt = +price;
-    let stockInt = +stock;
+    // let stockInt = +stock;
     console.log(params.id);
     setIsReady(false);
 
@@ -55,7 +55,7 @@ export default function EditProduct() {
           description,
           price: priceInt,
           image: picture,
-          stock: stockInt,
+          stock: 1,
         },
         {
           headers: {
@@ -100,10 +100,13 @@ export default function EditProduct() {
                 {dataProductId.name_product}
               </h1>
               <h1 className="detailProductPrice">Rp {dataProductId.price}</h1>
-              <h2 className="detailStock">
+              {/* <h2 className="detailStock">
                 Stok Produk : {dataProductId.stock}
-              </h2>
+              </h2> */}
               <p>
+                Terakhir dirubah : {dataProductId.CreatedAt.slice(0, 10)}
+                <br />
+                <br />
                 Deskripsi Produk:
                 <br />
                 {dataProductId.description}
@@ -126,8 +129,20 @@ export default function EditProduct() {
           <div className="editProductForm">
             <h2>Rubah Detail Produk</h2>
             <ProductForm
-              onSubmit={(nameProduct, description, price, stock, picture) => {
-                EditProduct(nameProduct, description, price, stock, picture);
+              onSubmit={(
+                nameProduct,
+                description,
+                price,
+                // stock,
+                picture
+              ) => {
+                EditProduct(
+                  nameProduct,
+                  description,
+                  price,
+                  // stock,
+                  picture
+                );
               }}
             />
           </div>

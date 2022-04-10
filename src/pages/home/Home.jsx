@@ -47,7 +47,6 @@ export default function Home() {
 
   let result;
   if (isReady) {
-    let sliced = dataProduct.slice(0, sliceValue);
     result = (
       <>
         <div className="homeSearch">

@@ -72,8 +72,10 @@ export default function Detail() {
           <ProductDetail image={dataProductId.image}>
             <h1 className="detailProductName">{dataProductId.name_product}</h1>
             <h1 className="detailProductPrice">Rp {dataProductId.price}</h1>
-            <h2 className="detailStock">Stok Produk : {dataProductId.stock}</h2>
             <p>
+              Terakhir dirubah : {dataProductId.CreatedAt.slice(0, 10)}
+              <br />
+              <br />
               Deskripsi Produk:
               <br />
               {dataProductId.description}

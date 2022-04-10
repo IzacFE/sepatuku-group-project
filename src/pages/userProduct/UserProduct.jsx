@@ -39,11 +39,11 @@ export default function UserProduct() {
     nameProduct,
     description,
     price,
-    stock,
+    // stock,
     picture
   ) => {
     let priceInt = +price;
-    let stockInt = +stock;
+    let stock = 1;
 
     setIsReady(true);
     await axios
@@ -54,7 +54,7 @@ export default function UserProduct() {
           description,
           price: priceInt,
           image: picture,
-          stock: stockInt,
+          stock,
         },
         {
           headers: {
@@ -112,8 +112,20 @@ export default function UserProduct() {
           <div className="newProductContainer">
             <h2 className="profileProductHeader">Tambah Produk Dagangan</h2>
             <ProductForm
-              onSubmit={(nameProduct, description, price, stock, picture) => {
-                addProduct(nameProduct, description, price, stock, picture);
+              onSubmit={(
+                nameProduct,
+                description,
+                price,
+                // stock,
+                picture
+              ) => {
+                addProduct(
+                  nameProduct,
+                  description,
+                  price,
+                  // stock,
+                  picture
+                );
               }}
             />
           </div>
