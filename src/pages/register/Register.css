@@ -4,9 +4,9 @@
 
 .signupBox {
   border: 1px solid var(--main-secondary);
-  margin-top: 25vh;
+  margin-top: 10vh;
   width: 500px;
-  height: 400px;
+  height: 525px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5%;
 }

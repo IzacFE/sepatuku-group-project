@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SignIn.css";
 
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,13 @@ export default function SignIn() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() =>{
+    if(localStorage.getItem('token')) {
+      
+      navigate("/")
+    }
+  }, [])
 
   const handleSignIn = async (e) => {
     e.preventDefault();
