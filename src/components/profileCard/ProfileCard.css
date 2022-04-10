@@ -1,10 +1,5 @@
-.profileDetail {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
 .profileAvatar {
+  margin: auto;
   max-width: 250px;
   max-height: 250px;
   width: 40vw;
@@ -12,6 +7,7 @@
   min-width: 150px;
   min-height: 150px;
   background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
   border-radius: 50%;
 }
@@ -20,8 +16,8 @@
   width: 65%;
   margin-left: 20px;
   min-width: 250px;
-  display: grid;
-  place-items: center;
+  padding: 2vh;
+  border-left: dashed 2px var(--main-secondary);
 }
 
 .profileDescription h2 {
@@ -30,15 +26,33 @@
 
 .profileHistoryButton {
   margin-top: 25px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* Grid area */
+.profileAvatar {
+  grid-area: item1;
+}
+
+.profileDescription {
+  grid-area: item2;
+}
+
+.profileHistoryButton {
+  grid-area: item3;
+}
+
+.profileDetail {
+  display: grid;
+  grid-template-areas:
+    "item1 item2"
+    "item3 item2";
 }
 
 @media (max-width: 1000px) {
-  .profileDetail {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
   .profileDescription {
     margin-top: 2rem;
     width: 100%;
@@ -52,6 +66,14 @@
 }
 
 @media (max-width: 600px) {
+  .profileDetail {
+    display: grid;
+    grid-template-areas:
+      "item1"
+      "item2"
+      "item3";
+  }
+
   .profileDescription {
     margin-top: 1rem;
   }
