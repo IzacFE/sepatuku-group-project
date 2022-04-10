@@ -1,6 +1,6 @@
 .orderContainer {
     margin-top: 7.18rem;
-    width: 80%;
+    width: 60%;
 }
 
 .orderBox {
@@ -14,7 +14,7 @@
 .orderBox input {
     display: block;
     border-radius: 50rem;
-    width: 85%;
+    width: 90%;
     padding: .375rem .75rem;
     font-weight: 400;
     line-height: 1.5;
@@ -31,42 +31,27 @@
 
 .orderInputKartu select {
     margin-top: 1.87rem;
-    margin-left: 5.375rem;
+    width: 15vw;
+    margin-left: 6%;
+    margin-right: auto;
 }
 
-.orderNomorKartu, .orderKode {
-    display: inline-block !important;
-}
-
-.orderNomorKartu {
-    width: 55% !important;
-    margin-left: 5.375rem !important;
-    margin-right: 1rem !important;
-}
-
-.orderKode {
-    width: 28% !important;
-}
-
-.orderTeksExp, .orderBulanExp, .orderTahunExp {
-    display: inline-block !important;
+.orderKodeCvv {
+    width: 15vw !important;
+    margin-left: 5.8% !important;
 }
 
 .orderTeksExp {
     margin-top: 1.87rem;
-    margin-left: 5.375rem;
-    margin-right: 3rem !important;
-}
-.orderBulanExp {
-    width: 33% !important;
-    margin-right: 3rem !important;
-    
+    margin-left: 6%;
 }
 
-.orderTahunExp {
-    width: 33% !important;
+.orderBulanExp, .orderTahunExp {
+    display: inline-block !important;
+    width: 15vw !important;
+    margin-left: 5.8% !important;
+    margin-top: auto !important;
 }
-
 .orderTeksPembayaran {
     margin-top: 2.18rem;
 }
@@ -87,3 +72,18 @@
     margin-top: 2rem;
     margin-bottom: 5rem;
 }
+
+.signinAlert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35vw;
+    height: 8vh;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+    border-radius: 0.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1rem;
+  }

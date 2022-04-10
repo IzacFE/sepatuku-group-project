@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 import "./SignIn.css";
 
 import { useNavigate } from "react-router-dom";
@@ -9,13 +10,15 @@ export default function SignIn() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [alertError, setAlertError] = useState();
 
   useEffect(() =>{
-    if(localStorage.getItem('token')) {
-      
-      navigate("/")
+    if(localStorage.getItem("token")){
+      setTimeout(() => {
+        navigate("/");
+      }, 2300);
     }
-  }, [])
+  }, [navigate])
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -26,11 +29,28 @@ export default function SignIn() {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.data.token);
-        alert("login sukses");
-        navigate("/");
+        if(response) {
+          if(response.data){
+            setUsername("");
+            setPassword("");
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: response.data.message,
+              showConfirmButton: false,
+              timer: 1500
+            })
+            window.location.reload();
+          }
+        }
       })
       .catch((error) => {
-        console.log(error);
+        setUsername("");
+        setPassword("");
+        setAlertError(error.response.data.message);
+        setTimeout(() => {
+          setAlertError("")
+        },1500)
       });
   };
 
@@ -40,18 +60,25 @@ export default function SignIn() {
         <div className="signinContent">
           <h2>Masuk</h2>
           <p>Masuk untuk berbelanja</p>
+          {
+            alertError && (
+              <div className="signinAlert">
+            <p>{alertError}</p>
+          </div>
+            )
+          }
           <form>
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="Username Anda"
+              placeholder="Username Anda" required
             />
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Kata Sandi Anda"
+              placeholder="Kata Sandi Anda" required
             />
             <button onClick={(e) => handleSignIn(e)}>Masuk</button>
           </form>
