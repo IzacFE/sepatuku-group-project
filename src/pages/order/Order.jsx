@@ -23,6 +23,7 @@ export default function Order(props) {
   const [alertError, setAlertError] = useState();
 
   let cartData = props.data;
+  console.log(cartData);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
@@ -30,9 +31,9 @@ export default function Order(props) {
     }
   }, [navigate]);
 
-  useEffect(() => {
-    fetchData();
-  },[])
+  // useEffect(() => {
+  //   fetchData();
+  // },[])
 
   // console.log('alamat:', alamat);
   // console.log('kota:', kota);
@@ -104,20 +105,20 @@ export default function Order(props) {
       });
   };
 
-  const fetchData = async () => {
-    await axios
-      .get(`/orders/history`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
-      .then((respnse) => {
-        setDisplayData(respnse.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const fetchData = async () => {
+  //   await axios
+  //     .get(`/orders/history`, {
+  //       headers: {
+  //         Authorization: `Bearer ${localStorage.getItem("token")}`,
+  //       },
+  //     })
+  //     .then((respnse) => {
+  //       setDisplayData(respnse.data.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
 
   return (
     <div className="orderContainer">
@@ -202,7 +203,11 @@ export default function Order(props) {
       <h4 className="orderTeksPembayaran">Lihat Pembelian </h4>
       <div className="orderBox">
       <div className="orderLihatPembayaran">
-        {displayData.map((item, index) => {
+          <p>Total Barang :</p> <p>{cartData}</p> <br />
+          <p>Ongkos Kirim :</p> <p>Ongkir Gratis</p> <br />
+          <p>Total Harga :</p> <p></p>
+
+        {/* {displayData.map((item, index) => {
           return (
             <div key={index}>
               <p>Total Barang :</p> <p>{item.total_qty}</p> <br />
@@ -210,7 +215,7 @@ export default function Order(props) {
               <p>Total Harga :</p> <p>{item.total_price}</p>
             </div>
           );
-        })}
+        })} */}
         </div>
       </div>
       {alertError && (
