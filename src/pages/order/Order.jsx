@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export default function Order() {
+export default function Order(props) {
   const navigate = useNavigate();
   const [displayData, setDisplayData] = useState([]);
   const [alamat, setAlamat] = useState("");
@@ -21,6 +21,8 @@ export default function Order() {
   const [quantity, setQuantuty] = useState("");
   const [totalPrice, setTotalPrice] = useState("");
   const [alertError, setAlertError] = useState();
+
+  let cartData = props.data;
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
